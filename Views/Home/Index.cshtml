@@ -1,33 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    var books = (List<Book>)ViewData["bookCollection"]!;
+﻿
+@{
+    ViewData["Title"] = "Books";
+
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Название книги</th>
-                <th scope="col">Дата публикации</th>
-                <th scope="col">Имя автора</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var book in books)
-             {
-            <tr>
-                <th scope="row">@book.Id</th>
-                <td>@book.Name</td>
-                <td>@book.publishDate</td>
-                <td>@book.authorName</td>
-          
-            </tr>
-            }
-        </tbody>
-    </table>
-</div>
+
