@@ -1,7 +1,9 @@
 ﻿using BookStore.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BookStore.Services
@@ -35,6 +37,13 @@ namespace BookStore.Services
                 publishDate = new DateTime(1897, 1,3),
                 authorName = "Ф.М. Достоевский"
             },
+             new Book()
+            {
+                Id = 4,
+                Name = "12 стульев",
+                publishDate = new DateTime(1957, 9,3),
+                authorName = "Ильф и Петров"
+            },
         };
         public Book AddNewBook(string bookName, DateTime publishDate, string authorName)
         {
@@ -43,6 +52,10 @@ namespace BookStore.Services
 
         public List<Book> GetBooks()
         {
+            using var sw = new StreamWriter("AllB.txt");
+
+            var json = JsonSerializer.Serialize<List<Book>>(Books);
+            sw.Write(json);
             return Books;
          
         }
